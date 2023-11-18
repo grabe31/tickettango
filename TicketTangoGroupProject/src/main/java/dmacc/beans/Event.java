@@ -3,14 +3,24 @@ package dmacc.beans;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+import lombok.Data;
+
 /**
  * @author Eric Grabe - egrabe
  * CIS175 - Fall 2023
  * Nov 12, 2023
  */
+
+@Data
+@Entity
 public class Event {
 	
-	private Long Id;
+	@Id
+	@GeneratedValue
+	private Long id;
 	private LocalDate eventDate;
 	private String venueName;
 	private int ticketCount;
@@ -18,6 +28,9 @@ public class Event {
 	private String performers;
 	private LocalTime startTime;
 	private LocalTime endTime;
+	
+	//@Autowired
+	//private Ticket ticket;
 	
 	public Event() {
 		super();
@@ -41,14 +54,14 @@ public class Event {
 	 * @return the id
 	 */
 	public Long getId() {
-		return Id;
+		return id;
 	}
 
 	/**
 	 * @param id the id to set
 	 */
 	public void setId(Long id) {
-		Id = id;
+		id = id;
 	}
 
 	/**
