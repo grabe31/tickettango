@@ -1,0 +1,21 @@
+<htmlxmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert New Event</title>
+</head>
+<body>
+<form th:object="${event}" th:action="@{/update/{id}(id=${event.id})} "method='POST'>
+Event Date: <input name="eventDate" size="20" th:field="*{eventDate}"> <br />
+Event: <input name="eventName" size="20" th:field="*{eventName}"> <br />
+Venue: <input name="venueName" size="20" th:field="*{venueName}"> <br />
+Ticket Count: <input name="ticketCount"size="20" th:field="*{ticketCount}"><br />
+Start Time: <input name="startTime" size="20" th:field="*{startTime}"> <br />
+End Time: <input name="endTime" size="20" th:field="*{endTime}"> <br />
+
+
+
+<input name="submit "type="submit" value="submit"/>
+</form>
+<a href="viewAll">View all Events</a>
+</body>
+</html>
