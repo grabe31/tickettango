@@ -30,7 +30,7 @@ public class Event {
 
 	
 	//@Autowired
-	//private Player player;
+	//private Ticket ticket;
 	
 	public Event() {
 		//super();

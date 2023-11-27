@@ -22,7 +22,7 @@ public class WebController {
 	@Autowired
 	EventRepository repo;
 	
-	@GetMapping({"/", "viewAll"})
+	@GetMapping({"plannerViewAll"})
 	public String viewAllEvents(Model model) {
 		if(repo.findAll().isEmpty()) {
 			return addNewEvent(model);
@@ -31,6 +31,8 @@ public class WebController {
 		model.addAttribute("event", repo.findAll());
 		return "results";
 	}
+	
+	
 	
 	@GetMapping("/inputEvent")
 	public String addNewEvent(Model model) {
