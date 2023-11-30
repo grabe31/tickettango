@@ -1,6 +1,7 @@
 package dmacc.beans;
 
 import jakarta.persistence.Embeddable;
+import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import lombok.Data;
@@ -11,6 +12,7 @@ import lombok.Data;
  * Nov 12, 2023
  */
 @Data
+@Entity
 @Embeddable
 public class Ticket {
 	

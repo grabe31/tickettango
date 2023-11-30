@@ -2,12 +2,15 @@ package dmacc.beans;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import lombok.Data;
 
 /**
@@ -27,10 +30,11 @@ public class Event {
 	private LocalDate eventDate;
 	private String startTime;
 	private String endTime;
-
 	
-	//@Autowired
-	//private Ticket ticket;
+	@Autowired
+	@OneToMany
+	private List<Ticket> tickets;
+
 	
 	public Event() {
 		//super();
@@ -44,7 +48,12 @@ public class Event {
 		this.ticketCount = ticketCount;
 		this.startTime = startTime;
 		this.endTime = endTime;
+		this.tickets = new ArrayList<>();
 		
+	}
+	
+	public void setTickets(List<Ticket> tickets) {
+		this.tickets = tickets;
 	}
 	
 	

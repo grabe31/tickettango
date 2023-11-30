@@ -4,6 +4,9 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 import dmacc.beans.Event;
+import dmacc.beans.Ticket;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author Eric Grabe - egrabe
@@ -20,10 +23,15 @@ public class BeanConfiguration {
 		return bean;
 	}
 	
-//	@Bean
-//	public Player player() {
-//		Player bean = new Player("Brown", 11);
-//		return bean;
-//	}
+	@Bean
+	public Ticket ticket() {
+		Ticket bean = new Ticket();
+		return bean;
+	}
+	
+	@Bean
+	public ArrayList<Ticket> ticketArrayList(){
+		return new ArrayList<>();
+	}
 
 }
