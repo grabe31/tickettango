@@ -45,7 +45,7 @@ public class WebController {
 	public String addNewEvent(@ModelAttribute Event e, Model model) {
 		//System.out.println(e.toString());
 		repo.save(e);
-		return viewAllEvents(model);
+		return "results";
 	}
 	
 	@GetMapping("/edit/{id}")

@@ -33,7 +33,7 @@ public class Event {
 	
 	@Autowired
 	@OneToMany
-	private List<Ticket> tickets;
+	private List<Customer> customers;
 
 	
 	public Event() {
@@ -48,12 +48,12 @@ public class Event {
 		this.ticketCount = ticketCount;
 		this.startTime = startTime;
 		this.endTime = endTime;
-		this.tickets = new ArrayList<>();
+		this.customers = new ArrayList<>();
 		
 	}
 	
-	public void setTickets(List<Ticket> tickets) {
-		this.tickets = tickets;
+	public void setCustomer(List<Customer> customers) {
+		this.customers = customers;
 	}
 	
 	

@@ -31,5 +31,10 @@ public class CustController {
 	
 	
 	
-	
+	@GetMapping("/buyTicket/{id}")
+	public String buyTicket(@PathVariable("id") long id, Model model) {
+		Event e = repo.findById(id).orElse(null);
+		model.addAttribute("event", e);
+		return "buyTicket";
+	}
 }

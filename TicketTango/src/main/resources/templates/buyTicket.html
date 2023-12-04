@@ -5,12 +5,11 @@
 </head>
 <body>
 <form th:object="${event}" th:action="@{/update/{id}(id=${event.id})} "method='POST'>
+Customer Email: <input name="customerEmail" size="25" th:field="*{customerEmail}"> <br />
 Event Title: <input name="eventDate" size="20" th:field="*{eventDate}"> <br />
 Tickets Available: <input name="eventName" size="20" th:field="*{eventName}"> <br />
 Tickets Requested: <input name="venueName" size="20" th:field="*{venueName}"> <br />
-: <input name="ticketCount"size="20" th:field="*{ticketCount}"><br />
-Start Time: <input name="startTime" size="20" th:field="*{startTime}"> <br />
-End Time: <input name="endTime" size="20" th:field="*{endTime}"> <br />
+
 
 
 

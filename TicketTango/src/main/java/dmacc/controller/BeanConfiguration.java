@@ -3,6 +3,7 @@ package dmacc.controller;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import dmacc.beans.Customer;
 import dmacc.beans.Event;
 import dmacc.beans.Ticket;
 import java.util.ArrayList;
@@ -34,4 +35,14 @@ public class BeanConfiguration {
 		return new ArrayList<>();
 	}
 
+	@Bean
+	public Customer customer() {
+		Customer bean = new Customer();
+		return bean;
+	}
+	
+	@Bean
+	public ArrayList<Customer> customerArrayList(){
+		return new ArrayList<>();
+	}
 }
