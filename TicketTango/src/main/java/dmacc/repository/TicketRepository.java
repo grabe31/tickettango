@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import dmacc.beans.Event;
+import dmacc.beans.Ticket;
 
 
 /**
@@ -15,6 +15,6 @@ import dmacc.beans.Event;
  */
 
 @Repository
-public interface EventRepository extends JpaRepository<Event, Long> {
+public interface TicketRepository extends JpaRepository<Ticket, Long> {
 
 }

@@ -19,12 +19,23 @@ public class Ticket {
 	@Id
 	@GeneratedValue
 	private long id;
-
+	private long eventId;
+	private String ownerEmail;
+	private int admissions;
 	
 	public Ticket() {
 		//super();
 	}
 	
+	public Ticket(long id, long eventId, String ownerEmail, int admissions) {
+		this.id = id;
+		this.eventId = id;
+		this.ownerEmail = ownerEmail;
+		this.admissions = admissions;
+	}
+	
+	
+
 
 	
 	

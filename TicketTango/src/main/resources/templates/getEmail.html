@@ -1,0 +1,15 @@
+<htmlxmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Enter Your Email</title>
+</head>
+<body>
+<form action= "#" th:action="@{/viewCustTickets} "th:object="${ticket}" method='POST'>
+Enter Your Email: <input class="form-control" th:field="*{ownerEmail}" id="ownerEmail" type="text" size="20"> <br />
+
+
+<input name="submit "type="submit" value="submit"/>
+</form>
+<a href="/">Home</a>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<htmlxmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Customer Tickets</title>
+</head>
+<body>
+<form>
+<table>
+<tr th:each="currentEvent : ${event}">
+<td th:text="${currentEvent.id}"/>
+<td th:text="${currentEvent.eventDate}"/>
+<td th:text="${currentEvent.eventName}"/>
+<td th:text="${currentEvent.venueName}"/>
+<td th:text="${currentEvent.ticketCount}"/>
+<td th:text="${currentEvent.startTime}"/>
+<td th:text="${currentEvent.endTime}"/>
+
+</tr>
+</table>
+</form>
+<a href="/">Home</a>
+</body>
+</html>

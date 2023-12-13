@@ -5,6 +5,7 @@
 </head>
 <body>
 <form th:object="${event}" th:action="@{/update/{id}(id=${event.id})} "method='POST'>
+Planner Email: <input name="plannerEmail" size="20" th:field="*{plannerEmail}"> <br />
 Event Date: <input name="eventDate" size="20" th:field="*{eventDate}"> <br />
 Event: <input name="eventName" size="20" th:field="*{eventName}"> <br />
 Venue: <input name="venueName" size="20" th:field="*{venueName}"> <br />

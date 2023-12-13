@@ -30,10 +30,11 @@ public class Event {
 	private LocalDate eventDate;
 	private String startTime;
 	private String endTime;
+	private String plannerEmail; 
 	
 	@Autowired
 	@OneToMany
-	private List<Customer> customers;
+	private List<Ticket> tickets;
 
 	
 	public Event() {
@@ -41,19 +42,27 @@ public class Event {
 	}
 	
 	public Event(String eventName, String venueName, int ticketCount, 
-				  LocalDate eventDate, String startTime, String endTime) {
+				  LocalDate eventDate, String startTime, String endTime,
+				  String plannerEmail) {
 		this.eventName = eventName;
 		this.venueName = venueName;
 		this.eventDate = eventDate;
 		this.ticketCount = ticketCount;
 		this.startTime = startTime;
 		this.endTime = endTime;
-		this.customers = new ArrayList<>();
+		this.plannerEmail= plannerEmail;
+		this.tickets = new ArrayList<>();
 		
 	}
 	
-	public void setCustomer(List<Customer> customers) {
-		this.customers = customers;
+//	public void createTicket(long id, String ownerEmail) {
+//		Ticket t = new Ticket(id, ownerEmail);
+//		ticketCount--;
+//		
+//	}
+	
+	public void setTickets(List<Ticket> Tickets) {
+		this.tickets = tickets;
 	}
 	
 	
