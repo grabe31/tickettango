@@ -1,25 +1,108 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<meta charset="UTF-8">
-<title>Ticket Tango</title>
+	<meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ticket Tango</title>
+    <style>
+        body {
+            background-color: #fdf9eb; 
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        h2 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 36px;
+        }
+
+        table {
+            width: 70%;
+            margin: 20px;
+            border-collapse: collapse;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        th, td {
+            padding: 15px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #3498db; 
+            color: #fff;
+        }
+
+        td {
+            background-color: #ecf0f1;
+        }
+
+        a {
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+            display: block;
+            padding: 15px;
+            transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+        }
+
+        a:hover {
+            background-color: #3498db;
+            color: #fff;
+        }
+    </style>
 </head>
+
 <body>
 	<h2>Welcome to Ticket Tango</h2>
 	<table border="2">
-		<tr><td>Event Planners</td></tr>
-		<tr><td><a href="plannerViewAll"> View All Events</a></tdborder="3">
-		<td><a href="inputEvent"> Create New Event</a></td></tr>
+		<tr>
+			<td>Event Planners</td>
+		</tr>
+		<tr>
+			<td><a href="plannerViewAll"> View All Events</a></tdborder="3">
+			<td><a href="inputEvent"> Create New Event</a></td>
+		</tr>
 	</table>
 	<br>
 	<br>
 	<br>
 	<table border="2">
-		<tr><td>Customers</td></tr>
-		<tr><td><a href="customerViewAll"> Buy Tickets</a></td>
-		<td><a href="getEmail"> My Tickets</a></td></tr>
+		<tr>
+			<td>Customers</td>
+		</tr>
+		<tr>
+			<td><a href="customerViewAll"> Buy Tickets</a></td>
+			<td><a href="getEmail"> My Tickets</a></td>
+		</tr>
 
+	</table>
+	<br>
+	<br>
+	<br>
+	<table>
+		<tr>
+			<th>Merchandise</th>
+		</tr>
+		<tr>
+			<td><a href="merchandiseViewAll">Browse Merchandise</a></td>
+		</tr>
 	</table>
 
 </body>
+
 </html>
