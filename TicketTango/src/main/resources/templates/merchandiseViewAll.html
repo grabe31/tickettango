@@ -4,12 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Merchandise Shop</title>
-    <style>
+ <style>
         body {
             font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f8f8f8;
+            background-color: #fdf9eb;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            min-height: 100vh;
         }
 
         header {
@@ -17,6 +22,8 @@
             color: #ecf0f1;
             padding: 10px;
             text-align: center;
+            width: 100%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
         h2 {
@@ -24,57 +31,80 @@
             text-align: center;
             margin-bottom: 20px;
             font-size: 36px;
+            margin-top: 0;
         }
 
-        table {
-            width: 80%;
+        form {
+            width: 70%;
             margin: 20px auto;
-            border-collapse: collapse;
             background-color: #fff;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             border: 1px solid #ddd;
             border-radius: 10px;
-            overflow: hidden;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
-        th, td {
-            padding: 15px;
-            text-align: center;
-            border-bottom: 1px solid #ddd;
+        label {
+            width: 100%;
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
         }
 
-        th {
-            background-color: #3498db;
-            color: #fff;
-        }
-
-        td {
-            background-color: #ecf0f1;
+        select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            box-sizing: border-box;
         }
 
         img {
             max-width: 100px;
             max-height: 100px;
+            margin-right: 10px;
         }
 
-        nav {
-            text-align: center;
+        button {
+            background-color: #3498db;
+            color: #fff;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #2980b9;
+        }
+
+        #cart {
             margin-top: 20px;
         }
 
-        nav a {
-            text-decoration: none;
-            color: #fff;
-            font-weight: bold;
-            margin: 0 15px;
-            padding: 10px 15px;
-            border-radius: 5px;
-            transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+        ul {
+            list-style: none;
+            padding: 0;
         }
 
-        nav a:hover {
-            background-color: #e67e22;
+        li {
+            margin-bottom: 10px;
+        }
+        
+         #printButton {
+            background-color: #2ecc71;
             color: #fff;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        #printButton:hover {
+            background-color: #27ae60;
         }
     </style>
 </head>
@@ -89,24 +119,54 @@
     
 
     <h2>Explore Our Merchandise</h2>
-    <table>
-        <tr>
-            <th>Item</th>
-            <th>Price</th>
-            <th>Image</th>
+    <form id="merchandiseForm">
+        <label for="merchandise">Select Merchandise:</label>
+        <select id="merchandise" name="merchandise" required>
+            <option value="item1">Item 1 <img src="/images/badtothebone.jpg" alt="Item 1"></option>
+            <option value="item2">Item 2 <img src="/images/cruzecontrol.jpg" alt="Item 2"></option>
+            <option value="item3">Item 3 <img src="/images/paradise.jpg" alt="Item 3"></option>
+            <option value="item4">Item 4 <img src="/images/smiley.jpg" alt="Item 4"></option>
+            <option value="item5">Item 5 <img src="/images/spaceman.jpg" alt="Item 5"></option>
+            <option value="item6">Item 6 <img src="/images/starmates.jpg" alt="Item 6"></option>
+            <option value="item7">Item 7 <img src="/images/wildwest.jpg" alt="Item 7"></option>
+        </select>
 
-        </tr>
-        <tr th:each="item : ${merchandise}">
-            <td th:text="${item.itemName}"></td>
-            <td th:text="${item.price}"></td>
-            <td>
- 
-                <img th:src="${/images/istockphoto-1286279839-612x612.jpg}" alt="Merchandise Image">
-            </td>
-        </tr>
-    </table>
-  
-   
+        <label for="quantity">Quantity:</label>
+        <input type="number" id="quantity" name="quantity" min="1" required>
+
+        <button type="button" onclick="addToCart()">Add to Cart</button>
+        <button id="printButton" onclick="printReceipt()">Print Receipt</button>
+    </form>
+
+    <div id="cart">
+        <h3>Shopping Cart</h3>
+        <ul id="cartItems"></ul>
+    </div>
+
+    <script>
+        function addToCart() {
+            var merchandiseSelect = document.getElementById('merchandise');
+            var quantityInput = document.getElementById('quantity');
+
+            var selectedItem = merchandiseSelect.options[merchandiseSelect.selectedIndex].text;
+            var quantity = quantityInput.value;
+
+            var cartItems = document.getElementById('cartItems');
+            var listItem = document.createElement('li');
+            listItem.textContent = selectedItem + ' - Quantity: ' + quantity;
+            cartItems.appendChild(listItem);
+        }
+        
+
+        function printReceipt() {
+            var printContent = document.getElementById('cart').innerHTML;
+            var newWindow = window.open();
+            newWindow.document.write('<html><head><title>Receipt</title></head><body>');
+            newWindow.document.write('<h2>Receipt</h2>');
+            newWindow.document.write(cartContent);
+            newWindow.document.write('</body></html>');
+        }
+    </script>
 </body>
 </html>
 

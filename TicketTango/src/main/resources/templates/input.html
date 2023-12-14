@@ -86,7 +86,8 @@
 </head>
 <body>
 	<nav>
-		<a href="/index.html">Home</a>
+		 <a href="/index.html">Home</a>
+        <a href="/merchandiseViewAll">Merchandise</a>
 	</nav>
 	<h2>Create New Event</h2>
 <form th:object="${event}" th:action="@{/update/{id}(id=${event.id})} "method='POST'>
