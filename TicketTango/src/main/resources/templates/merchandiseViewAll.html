@@ -1,115 +1,210 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Merchandise Shop</title>
-    <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f8f8f8;
-        }
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Merchandise Shop</title>
+	<style>
+		body {
+			font-family: 'Arial', sans-serif;
+			margin: 0;
+			padding: 0;
+			background-color: #fdf9eb;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: flex-start;
+			min-height: 100vh;
+		}
 
-        header {
-            background-color: #2c3e50;
-            color: #ecf0f1;
-            padding: 10px;
-            text-align: center;
-        }
+		header {
+			background-color: #2c3e50;
+			color: #ecf0f1;
+			padding: 10px;
+			text-align: center;
+			width: 100%;
+			box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+		}
 
-        h2 {
-            color: #333;
-            text-align: center;
-            margin-bottom: 20px;
-            font-size: 36px;
-        }
+		h2 {
+			color: #333;
+			text-align: center;
+			margin-bottom: 20px;
+			font-size: 36px;
+			margin-top: 0;
+		}
 
-        table {
-            width: 80%;
-            margin: 20px auto;
-            border-collapse: collapse;
-            background-color: #fff;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            border: 1px solid #ddd;
-            border-radius: 10px;
-            overflow: hidden;
-        }
+		form {
+			width: 70%;
+			margin: 20px auto;
+			background-color: #fff;
+			box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+			border: 1px solid #ddd;
+			border-radius: 10px;
+			padding: 20px;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+		}
 
-        th, td {
-            padding: 15px;
-            text-align: center;
-            border-bottom: 1px solid #ddd;
-        }
+		label {
+			width: 100%;
+			display: block;
+			margin-bottom: 10px;
+			font-weight: bold;
+		}
 
-        th {
-            background-color: #3498db;
-            color: #fff;
-        }
+		select {
+			width: 100%;
+			padding: 10px;
+			margin-bottom: 15px;
+			box-sizing: border-box;
+		}
 
-        td {
-            background-color: #ecf0f1;
-        }
+		img {
+			max-width: 100px;
+			max-height: 100px;
+			margin-right: 10px;
+		}
 
-        img {
-            max-width: 100px;
-            max-height: 100px;
-        }
+		button {
+			background-color: #3498db;
+			color: #fff;
+			padding: 10px 15px;
+			border: none;
+			border-radius: 5px;
+			cursor: pointer;
+		}
 
-        nav {
-            text-align: center;
-            margin-top: 20px;
-        }
+		button:hover {
+			background-color: #2980b9;
+		}
 
-        nav a {
-            text-decoration: none;
-            color: #fff;
-            font-weight: bold;
-            margin: 0 15px;
-            padding: 10px 15px;
-            border-radius: 5px;
-            transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
-        }
+		#cart {
+			margin-top: 20px;
+		}
 
-        nav a:hover {
-            background-color: #e67e22;
-            color: #fff;
-        }
-    </style>
+		ul {
+			list-style: none;
+			padding: 0;
+		}
+
+		li {
+			margin-bottom: 10px;
+		}
+
+		#printButton {
+			background-color: #2ecc71;
+			color: #fff;
+			padding: 10px 15px;
+			border: none;
+			border-radius: 5px;
+			cursor: pointer;
+			margin-top: 20px;
+		}
+
+		#printButton:hover {
+			background-color: #27ae60;
+		}
+
+		#receipt {
+			text-align: left;
+			padding: 20px;
+			border: 1px solid #ddd;
+			background-color: #fff;
+			box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+			border-radius: 10px;
+		}
+
+		a {
+			text-decoration: none;
+			color: #fff;
+			font-weight: bold;
+			padding: 10px 15px;
+			border-radius: 5px;
+			transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+			margin: 0 15px;
+		}
+
+		a:hover {
+			background-color: #e67e22;
+			color: #fff;
+		}
+	</style>
 </head>
+
 <body>
-    <header>
-        <h1>Merchandise Shop</h1>
-        <nav>
-        <a href="/index.html">Home</a>
-        <a href="/merchandiseViewAll">Merchandise</a>
-    </nav>
-    </header>
-    
+	<header>
+		<h1>Merchandise Shop</h1>
+		<nav>
+			<a href="/index.html">Home</a>
+			<a href="/merchandiseViewAll">Merchandise</a>
+		</nav>
+	</header>
 
-    <h2>Explore Our Merchandise</h2>
-    <table>
-        <tr>
-            <th>Item</th>
-            <th>Price</th>
-            <th>Image</th>
 
-        </tr>
-        <tr th:each="item : ${merchandise}">
-            <td th:text="${item.itemName}"></td>
-            <td th:text="${item.price}"></td>
-            <td>
- 
-                <img th:src="${/images/istockphoto-1286279839-612x612.jpg}" alt="Merchandise Image">
-            </td>
-        </tr>
-    </table>
-  
-   
+	<h2>Explore Our Merchandise</h2>
+	<form id="merchandiseForm">
+		<label for="merchandise">Select Merchandise:</label>
+		<select id="merchandise" name="merchandise" required>
+			<option value="item1">Bad To The Bone Graphic Tee - $19.99<img src="/images/badtothebone.jpg" alt="Item 1"></option>
+			<option value="item2">Cruze Control Graphic Tee - $19.99<img src="/images/cruzecontrol.jpg" alt="Item 2"></option>
+			<option value="item3">Paradise Graphic Tee - $19.99<img src="/images/paradise.jpg" alt="Item 3"></option>
+			<option value="item4">Smiley Graphic Tee - $19.99 <img src="/images/smiley.jpg" alt="Item 4"></option>
+			<option value="item5">Space Man Graphic Tee - $19.999<img src="/images/spaceman.jpg" alt="Item 5"></option>
+			<option value="item6">Star Mates Graphic Tee - $19.99<img src="/images/starmates.jpg" alt="Item 6"></option>
+			<option value="item7">Wild West Graphic Tee - $19.99<img src="/images/wildwest.jpg" alt="Item 7"></option>
+		</select>
+
+		<label for="quantity">Quantity:</label>
+		<input type="number" id="quantity" name="quantity" min="1" required>
+		<br>
+		<button type="button" onclick="addToCart()">Add to Cart</button>
+		<button id="printButton" onclick="printReceipt()">Print Receipt</button>
+		</br>
+
+	</form>
+
+	<div id="cart">
+		<h3>Shopping Cart</h3>
+		<ul id="cartItems"></ul>
+	</div>
+
+	<script>
+		function addToCart() {
+			var merchandiseSelect = document.getElementById('merchandise');
+			var quantityInput = document.getElementById('quantity');
+
+			var selectedItem = merchandiseSelect.options[merchandiseSelect.selectedIndex].text;
+			var quantity = quantityInput.value;
+
+			var cartItems = document.getElementById('cartItems');
+			var listItem = document.createElement('li');
+			listItem.textContent = selectedItem + ' - Quantity: ' + quantity;
+			cartItems.appendChild(listItem);
+		}
+
+
+		function printReceipt() {
+			var customerName = prompt('Enter your name:');
+			var customerEmail = prompt('Enter your email:');
+
+			var cartContent = document.getElementById('cart').innerHTML;
+			var newWindow = window.open('', '_blank');
+			newWindow.document.write('<html><head><title>Receipt</title>');
+			newWindow.document.write('<style>#receipt { text-align: left; padding: 20px; border: 1px solid #ddd; background-color: #fff; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); border-radius: 10px; } </style>');
+			newWindow.document.write('</head><body>');
+			newWindow.document.write('<div id="receipt">');
+			newWindow.document.write('<h2>Receipt</h2>');
+			newWindow.document.write('<p>Customer Name: ' + customerName + '</p>');
+			newWindow.document.write('<p>Customer Email: ' + customerEmail + '</p>');
+			newWindow.document.write('<h3>Shopping Cart</h3>');
+			newWindow.document.write('<ul>' + cartContent + '</ul>');
+			newWindow.document.write('</div></body></html>');
+		}
+
+	</script>
 </body>
+
 </html>
-
-
-
-

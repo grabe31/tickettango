@@ -1,10 +1,13 @@
 
 package dmacc.beans;
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
-
+/**
+ * @author Aaliyah Trotter - atrotter1
+ * CIS175 - Fall 2023
+ * Nov 20, 2023
+ */
 @Entity
 public class Merchandise {
 	
@@ -13,7 +16,8 @@ public class Merchandise {
 	private Long id;
 	private String itemName;
 	private double price;
-	private String image;
+	 private String image;
+
 
 	public Merchandise() {
 
@@ -23,15 +27,15 @@ public class Merchandise {
 	        this.itemName = itemName;
 	        this.price = price;
 	        this.image = image;
+	     
 	}
+	    public String getImage() {
+	        return image;
+	    }
 
-    public String getImage() {
-        return image;
-    }
-
-    public void setImage(String image) {
-        this.image = image;
-    }
+	    public void setImage(String image) {
+	        this.image = image;
+	    }
 
 	
 	public Long getId() {
