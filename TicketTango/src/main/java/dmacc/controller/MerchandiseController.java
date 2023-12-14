@@ -39,8 +39,6 @@ public class MerchandiseController {
         return "redirect:/addSuccess";
     }
 
-
-
     @GetMapping("/addSuccess")
     public String addSuccess() {
         return "addSuccess";
