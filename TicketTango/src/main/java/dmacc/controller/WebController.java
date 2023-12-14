@@ -1,6 +1,5 @@
 package dmacc.controller;
 
-import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -9,10 +8,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+
 
 import dmacc.beans.Event;
 import dmacc.repository.EventRepository;
+
 
 /**
  * @author Eric Grabe - egrabe
@@ -45,10 +45,9 @@ public class WebController {
 	
 	@GetMapping("/inputEvent")
 	public String addNewEvent(Model model) {
-		Event e = new Event();
-		model.addAttribute("event", e);
-		return "input";
-				}
+		 model.addAttribute("event", new Event());
+	        return "input";
+	}
 	
 	@PostMapping("/inputEvent")
 	public String addNewEvent(@ModelAttribute Event e, Model model) {
@@ -76,6 +75,5 @@ public class WebController {
 	repo.delete(e);
 	return viewAllEvents(model);
 	}
-	
-	
+
 }

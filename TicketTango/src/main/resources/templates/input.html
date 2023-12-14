@@ -2,8 +2,93 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert New Event</title>
+   <style>
+        body {
+            background-color: #fdf9eb;
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h2 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 36px;
+        }
+
+        form {
+            width: 100%; 
+            max-width: 1000px; 
+            margin: 20px auto;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        input {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"] {
+            width: 100%;
+            background-color: #3498db;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #2980b9;
+        }
+
+        a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: bold;
+            background-color: #3498db;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 20px;
+            text-align: center;
+            display: inline-block;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        a:hover {
+            background-color: #2980b9;
+        }
+        
+        a.centered {
+            display: block;
+            margin: auto;
+        }
+        nav a {
+            text-decoration: none;
+            color: #333;
+            margin: 0 10px;
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body>
+	<nav>
+		<a href="/index.html">Home</a>
+	</nav>
+	<h2>Create New Event</h2>
 <form th:object="${event}" th:action="@{/update/{id}(id=${event.id})} "method='POST'>
 Planner Email: <input name="plannerEmail" size="20" th:field="*{plannerEmail}"> <br />
 Event Date: <input name="eventDate" size="20" th:field="*{eventDate}"> <br />
@@ -17,6 +102,6 @@ End Time: <input name="endTime" size="20" th:field="*{endTime}"> <br />
 
 <input name="submit "type="submit" value="submit"/>
 </form>
-<a href="plannerViewAll">View all Events</a>
+<a class="centered" href="plannerViewAll">View all Events</a>
 </body>
 </html>
