@@ -187,8 +187,6 @@
 
 
 		function printReceipt() {
-			var customerName = prompt('Enter your name:');
-			var customerEmail = prompt('Enter your email:');
 
 			var cartContent = document.getElementById('cart').innerHTML;
 			var newWindow = window.open('', '_blank');
@@ -197,9 +195,6 @@
 			newWindow.document.write('</head><body>');
 			newWindow.document.write('<div id="receipt">');
 			newWindow.document.write('<h2>Receipt</h2>');
-			newWindow.document.write('<p>Customer Name: ' + customerName + '</p>');
-			newWindow.document.write('<p>Customer Email: ' + customerEmail + '</p>');
-			newWindow.document.write('<h3>Shopping Cart</h3>');
 			newWindow.document.write('<ul>' + cartContent + '</ul>');
 			newWindow.document.write('</div></body></html>');
 		}
